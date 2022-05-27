@@ -25,15 +25,15 @@ const server = http.createServer((req, res) => {
           result: botChoice,
         };
         res.end(JSON.stringify(objToJson));
-      } //student = leon
-      else if (params["student"] != "leon") {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        const objToJson = {
-          name: "unknown",
-          status: "unknown",
-          currentOccupation: "unknown",
-        };
-        res.end(JSON.stringify(objToJson));
+      // } //student = leon
+      // else if (params["student"] != "leon") {
+      //   res.writeHead(200, { "Content-Type": "application/json" });
+      //   const objToJson = {
+      //     name: "unknown",
+      //     status: "unknown",
+      //     currentOccupation: "unknown",
+      //   };
+      //   res.end(JSON.stringify(objToJson));
       } //student != leon
     } //student if
   } //else if
