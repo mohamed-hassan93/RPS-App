@@ -33,7 +33,7 @@ async function run() {
   } else if (
     (user_input == "rock" && bot_choice == "scissors") ||
     (user_input == "paper" && bot_choice == "rock") ||
-    (user_input == "scissors" && bot_choice == "rock")
+    (user_input == "scissors" && bot_choice == "paper")
   ) {
     document.querySelector(
       "#winner"
