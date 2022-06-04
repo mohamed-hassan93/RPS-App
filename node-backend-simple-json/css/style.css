@@ -30,6 +30,6 @@ button {
   transform: scaleY(-1) rotate(270deg);
 }
 
-/* .hidden {
+.hidden {
   display: none;
-} */
+}

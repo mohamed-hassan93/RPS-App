@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     });
   } else if (page == "/api") {
     if ("student" in params) {
-      if (params["student"] == "scissors" || "paper" || "scissors") {
+      if (params["student"] == "rock" || "paper" || "scissors") {
         res.writeHead(200, { "Content-Type": "application/json" });
         //Here we generate a random bot choice for our game
         let options = ["rock", "paper", "scissors"];
@@ -24,6 +24,7 @@ const server = http.createServer((req, res) => {
         const objToJson = {
           result: botChoice,
         };
+       
         res.end(JSON.stringify(objToJson));
       // } //student = leon
       // else if (params["student"] != "leon") {
