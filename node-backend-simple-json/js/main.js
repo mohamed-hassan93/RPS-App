@@ -9,14 +9,26 @@ Array.from(options).forEach((element) =>
 );
 
 let user_input;
-//this function grabs the user input and then calls the function run() which gathers the informaiton from our API
+//this function grabs the user input and displays the animation. The function then calls the function run() which gathers the informaiton from our API
 function userchoice(click) {
   if (click.target.classList.contains("rock")) {
     user_input = "rock";
+    document.querySelector('#player-rock').classList.toggle('hidden')
+    document.querySelector('#player-paper').classList.add('hidden')
+    document.querySelector('#player-scissors').classList.add('hidden')
+
   } else if (click.target.classList.contains("paper")) {
     user_input = "paper";
+    document.querySelector('#player-paper').classList.toggle('hidden')
+    document.querySelector('#player-rock').classList.add('hidden')
+    document.querySelector('#player-scissors').classList.add('hidden')
+
   } else if (click.target.classList.contains("scissors")) {
     user_input = "scissors";
+    document.querySelector('#player-scissors').classList.toggle('hidden')
+    document.querySelector('#player-paper').classList.add('hidden')
+    document.querySelector('#player-rock').classList.add('hidden')
+
   }
   run();
 }
@@ -26,6 +38,20 @@ async function run() {
   const data = await res.json();
   //We grab the value from  json
   const bot_choice = data.result;
+
+  if (bot_choice === 'rock'){
+    document.querySelector('#bot-rock').classList.toggle('hidden')
+    document.querySelector('#bot-paper').classList.add('hidden')
+    document.querySelector('#bot-scissors').classList.add('hidden')
+  } else if (bot_choice === 'paper'){
+    document.querySelector('#bot-paper').classList.toggle('hidden')
+    document.querySelector('#bot-rock').classList.add('hidden')
+    document.querySelector('#bot-scissors').classList.add('hidden')
+  } else{
+    document.querySelector('#bot-scissors').classList.toggle('hidden')
+    document.querySelector('#bot-paper').classList.add('hidden')
+    document.querySelector('#bot-rock').classList.add('hidden')
+  }
 
   //Here we decide if the outcome of the match was a draw, win for the user, or a loss
   if (user_input === bot_choice) {

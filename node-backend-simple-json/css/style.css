@@ -26,6 +26,10 @@ button {
   padding-bottom: 2rem;
 }
 
-/* .hidden {
+#bot-rock{
+  transform: scaleY(-1) rotate(270deg);
+}
+
+.hidden {
   display: none;
-} */
+}
