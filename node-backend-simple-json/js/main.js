@@ -54,7 +54,11 @@ let computer_scissor;
 //THe following variable keep track of the scores, an the user's win streak
 let user_score = 0;
 let computer_score = 0;
-let user_streak = 0;
+let high_score = 0;
+const displayHighScore = document.querySelector(".win-streak");
+let highScore = localStorage.getItem("myhighscore") || 0;
+
+// let score_array = [];
 
 async function run() {
   //Here we are fetching the API from our server.js file
@@ -104,17 +108,23 @@ async function run() {
       "#winner"
     ).textContent = `You win, congratulations!!`;
     user_score++;
-    user_streak++;
+    high_score++;
     document.querySelector(
       ".user_score"
     ).innerHTML = `User Score: ${user_score}`;
   } else {
     document.querySelector("#winner").textContent = `Bot wins :(`;
     computer_score++;
-    user_Streak = 0;
+    high_score = 0;
     document.querySelector(
       ".bot_score"
     ).innerHTML = `Bot Score: ${computer_score}`;
+  }
+
+  if (high_score > highScore) {
+    highScore = high_score;
+    displayHighScore.innerHTML = `Player win streak: ${highScore}`;
+    localStorage.setItem("myhighscore", highScore);
   }
 
   console.log(data);
@@ -125,8 +135,5 @@ async function run() {
 }
 
 //Local Storage to store user's highest win streak
-localStorage.setItem("User Win Streak", user_streak);
-const displayHighScore = document.querySelector(".win-streak");
-displayHighScore.innerHTML = `Player's current win streak: ${localStorage.getItem(
-  "User Win Streak"
-)}`;
+// localStorage.setItem("User Win Streak", user_streak);
+// localStorage.
