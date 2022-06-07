@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 h1 {
   color: red;
 }
@@ -7,4 +11,25 @@ button {
   font-weight: bold;
   border-radius: 10px;
   background: #f4f4f4;
+}
+
+.choices,
+.score,
+.display-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10rem;
+  align-items: center;
+}
+
+.choices {
+  padding-bottom: 2rem;
+}
+
+#bot-rock{
+  transform: scaleY(-1) rotate(270deg);
+}
+
+.hidden {
+  display: none;
 }

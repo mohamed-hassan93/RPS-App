@@ -2,7 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Rock Paper Scissors</title>
+    <script
+      src="https://kit.fontawesome.com/88b15e6695.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -12,10 +16,35 @@
       <button class="paper" value="paper">Paper</button>
       <button class="scissors" value="scissors">Scissors</button>
     </section>
-
-    <h2 id="personStatus"></h2>
-    <h2 id="bot"></h2>
-    <h2 id="winner"></h2>
+    <section class="results">
+      <div class="choices">
+        <h3 id="personStatus"></h3>
+        <h3 id="bot"></h3>
+      </div>
+      <section class="display-icons">
+        <div class="player-icons">
+          <i id="player-rock" class="fa fa-hand-back-fist fa-4x fa-rotate-90 hidden"></i>
+          <i id="player-paper" class="fas fa-hand fa-4x hidden fa-flip-horizontal"></i>
+          <i id="player-scissors" class="fas fa-hand-scissors fa-4x hidden fa-flip-horizontal"></i>
+        </div>
+        <div class="bot-icons">
+          <i id="bot-rock" class="fa fa-hand-back-fist fa-4x  fa-rotate-270 hidden"  ></i>
+        </span>
+        <i id="bot-paper" class="fas fa-hand fa-4x hidden"></i>
+        <i id="bot-scissors" class="fas fa-hand-scissors fa-4x hidden"></i>
+      </div>
+    </section>
+    <div class="score">
+      <div class="player-score">
+        <h3 class="user_score">User Score:</h3>
+      </div>
+      <div class="computer-score">
+          <h3 class = 'bot_score'>Bot Score:</h3>
+        </div>
+      </div>
+      <h3 id="winner"></h3>
+      <h4 class="win-streak">Player win streak:</h4> 
+    </section>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>
 </html>
