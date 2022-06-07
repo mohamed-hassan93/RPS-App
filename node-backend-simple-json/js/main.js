@@ -2,7 +2,22 @@
 // let user_input = document.querySelectorAll("button").value;
 
 const options = document.querySelectorAll("button");
+let computer_rock;
+let computer_paper;
+let computer_scissor;
+//THe following variable keep track of the scores, an the user's win streak
+let user_score = 0;
+let computer_score = 0;
+let high_score = 0;
+const displayHighScore = document.querySelector(".win-streak");
+let highScore = localStorage.getItem("myhighscore") || 0;
 
+const isStorage = "undefined" !== typeof localStorage;
+if (isStorage && localStorage.getItem("myhighscore")) {
+  displayHighScore.innerHTML = `Player win streak: ${localStorage.getItem(
+    "myhighscore"
+  )}`;
+}
 //We included every button element into an array which allows us to use the method forEach to add an eventlistener to each button
 Array.from(options).forEach((element) =>
   element.addEventListener("click", userchoice)
@@ -47,16 +62,6 @@ function userchoice(click) {
   }
   run();
 }
-
-let computer_rock;
-let computer_paper;
-let computer_scissor;
-//THe following variable keep track of the scores, an the user's win streak
-let user_score = 0;
-let computer_score = 0;
-let high_score = 0;
-const displayHighScore = document.querySelector(".win-streak");
-let highScore = localStorage.getItem("myhighscore") || 0;
 
 // let score_array = [];
 
