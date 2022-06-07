@@ -51,6 +51,11 @@ function userchoice(click) {
 let computer_rock;
 let computer_paper;
 let computer_scissor;
+//THe following variable keep track of the scores, an the user's win streak
+let user_score = 0;
+let computer_score = 0;
+let user_streak = 0;
+
 async function run() {
   //Here we are fetching the API from our server.js file
   const res = await fetch(`/api?student=${user_input}`);
@@ -68,7 +73,7 @@ async function run() {
     document.querySelector("#bot-scissors").classList.add("hidden");
     computer_rock = true;
   } else if (bot_choice === "paper") {
-    if (computer_rock == true) {
+    if (computer_paper == true) {
       document.querySelector("#bot-paper").classList.remove("hidden");
     } else {
       document.querySelector("#bot-paper").classList.toggle("hidden");
@@ -98,8 +103,18 @@ async function run() {
     document.querySelector(
       "#winner"
     ).textContent = `You win, congratulations!!`;
+    user_score++;
+    user_streak++;
+    document.querySelector(
+      ".user_score"
+    ).innerHTML = `User Score: ${user_score}`;
   } else {
     document.querySelector("#winner").textContent = `Bot wins :(`;
+    computer_score++;
+    user_Streak = 0;
+    document.querySelector(
+      ".bot_score"
+    ).innerHTML = `Bot Score: ${computer_score}`;
   }
 
   console.log(data);
@@ -108,3 +123,10 @@ async function run() {
     "#personStatus"
   ).textContent = `You chose: ${user_input}`;
 }
+
+//Local Storage to store user's highest win streak
+localStorage.setItem("User Win Streak", user_streak);
+const displayHighScore = document.querySelector(".win-streak");
+displayHighScore.innerHTML = `Player's current win streak: ${localStorage.getItem(
+  "User Win Streak"
+)}`;
