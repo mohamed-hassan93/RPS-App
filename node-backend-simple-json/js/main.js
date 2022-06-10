@@ -1,6 +1,3 @@
-// document.querySelectorAll("button").addEventListener("click", run);
-// let user_input = document.querySelectorAll("button").value;
-
 const options = document.querySelectorAll("button");
 let computer_rock;
 let computer_paper;
@@ -62,8 +59,6 @@ function userchoice(click) {
   }
   run();
 }
-
-// let score_array = [];
 
 async function run() {
   //Here we are fetching the API from our server.js file
@@ -138,7 +133,3 @@ async function run() {
     "#personStatus"
   ).textContent = `You chose: ${user_input}`;
 }
-
-//Local Storage to store user's highest win streak
-// localStorage.setItem("User Win Streak", user_streak);
-// localStorage.
